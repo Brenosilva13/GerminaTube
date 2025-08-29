@@ -8,28 +8,26 @@
     <!-- styles -->
     <link rel="stylesheet" href="styles.css" />
   </head>
+
+  <header>
+    <img src="logo-germinare.png" alt="logo">
+    <h1>GerminaTube</h1>
+  </header>
+
   <body>
-    <!-- preloader -->
-    <div class="preloader">
-      <img src="preloader.gif" alt="preloader" class="preloader__item" />
+    <div class="video-principal">
+      <div class="toolbar"></div>
     </div>
-    <!-- header -->
-    <header>
-      <video controls muted autoplay loop class="video-container">
-        <source src="./video.mp4" type="video/mp4" />
-      </video>
-      <h1>video project</h1>
-      <!-- video switch -->
-      <button class="switch-btn">
-        <span>
-          play
-        </span>
-        <span>
-          pause
-        </span>
-        <span class="switch"></span>
-      </button>
-    </header>
+
+    <div class="lista">
+      <div class="video video-1"></div>
+      <div class="video video-2"></div>
+      <div class="video video-3"></div>
+    </div>
+
+
+
+
     <!-- javascript -->
     <script src="app.js"></script>
   </body>
