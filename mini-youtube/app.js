@@ -67,21 +67,28 @@ videoCards.forEach((card) => {
 
   // Clique no card → troca com principal
   card.addEventListener("click", () => {
-    const mainSrc = video.getAttribute("src");
-    const capaVideoSrc = capaVideo.getAttribute("src");
+  const mainSrc = video.getAttribute("src");
+  const mainPoster = video.getAttribute("poster");
+  const capaVideoSrc = capaVideo.getAttribute("src");
+  const capaVideoPoster = capaVideo.getAttribute("poster");
 
-    // troca os vídeos
-    video.setAttribute("src", capaVideoSrc);
-    capaVideo.setAttribute("src", mainSrc);
+  // troca src e poster do principal
+  video.setAttribute("src", capaVideoSrc);
+  video.setAttribute("poster", capaVideoPoster);
 
-    // resetar miniatura
-    capaVideo.pause();
-    capaVideo.currentTime = 0;
-    capaVideo.load();
+  // troca src e poster da miniatura
+  capaVideo.setAttribute("src", mainSrc);
+  capaVideo.setAttribute("poster", mainPoster);
 
-    // tocar principal atualizado
-    video.play();
-    playPauseBtn.querySelector("img").src = "./images/pause.png";
-    playPauseBtn.querySelector("img").alt = "Pause";
-  });
+  // resetar miniatura
+  capaVideo.pause();
+  capaVideo.currentTime = 0;
+  capaVideo.load();
+
+  // tocar principal atualizado
+  video.play();
+  playPauseBtn.querySelector("img").src = "./images/pause.png";
+  playPauseBtn.querySelector("img").alt = "Pause";
+});
+
 });
