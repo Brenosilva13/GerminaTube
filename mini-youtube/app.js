@@ -4,7 +4,7 @@ const playPauseBtn = document.getElementById("playPauseBtn");
 const audioBtn = document.getElementById("audioBtn");
 const fullscreenBtn = document.getElementById("fullscreenBtn");
 
-// ▶️ / ⏸️ play & pause
+// play & pause
 playPauseBtn.addEventListener("click", () => {
   const img = playPauseBtn.querySelector("img");
 
@@ -19,13 +19,13 @@ playPauseBtn.addEventListener("click", () => {
   }
 });
 
-// 🔇 / 🔊 mute & unmute
+// mute & unmute
 audioBtn.addEventListener("click", () => {
   const img = audioBtn.querySelector("img");
 
   video.muted = !video.muted;
   if (video.muted) {
-    img.src = "./images/mute.png";
+    img.src = "./images/mutar.png";
     img.alt = "Mudo";
   } else {
     img.src = "./images/audio.png";
@@ -33,37 +33,36 @@ audioBtn.addEventListener("click", () => {
   }
 });
 
-// ⛶ fullscreen (entra e sai)
+// fullscreen (entra e sai)
 fullscreenBtn.addEventListener("click", () => {
   const img = fullscreenBtn.querySelector("img");
 
   if (!document.fullscreenElement) {
     video.requestFullscreen();
-    img.src = "./images/minimize.png";
+    img.src = "./images/minimizar.png";
     img.alt = "Restaurar";
   } else {
     document.exitFullscreen();
-    img.src = "./images/maximize.png";
+    img.src = "./images/maximizar.png";
     img.alt = "Tela cheia";
   }
 });
 
-// 🎬 Miniaturas (hover + click invertendo com principal)
+// Vídeos laterais
 const videoCards = document.querySelectorAll(".video-card");
 
 videoCards.forEach((card) => {
   const capaVideo = card.querySelector(".capaVideo");
 
-  // Hover → prévia
   capaVideo.addEventListener("mouseenter", () => {
     capaVideo.play();
   });
 
-  // Sai do hover → volta pro poster
+  // Sai do hover → volta pra capa
   capaVideo.addEventListener("mouseleave", () => {
     capaVideo.pause();
     capaVideo.currentTime = 0;
-    capaVideo.load(); // garante que o poster reaparece
+    capaVideo.load();
   });
 
   // Clique no card → troca com principal
