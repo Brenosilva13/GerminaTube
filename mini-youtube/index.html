@@ -1,34 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Video</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GerminaTube</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />          
+</head>
 
-    <!-- styles -->
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-
+<body>
   <header>
-    <img src="logo-germinare.png" alt="logo">
-    <h1>GerminaTube</h1>
+    <div class="left">
+      <img src="./images/images.png" alt="logo" class="logo">
+      <h1>GerminaTube</h1>
+    </div>
+
+    <div class="right">
+      <div class="foto-perfil"></div>
+    </div>
   </header>
 
-  <body>
-    <div class="video-principal">
-      <div class="toolbar"></div>
+  <main>
+    <section class="video-area">
+      <div class="video-principal">
+        <video id="video" width="100%" height="100%" src="./videos/jsForBeginners.mp4" poster="images/capaJsBegginers.jpg"></video>
+        
+        <div class="toolbar">
+          <button id="playPauseBtn"><img src="./images/play.png" alt="Play"></button>
+          <button id="audioBtn"><img src="./images/audio.png" alt="Audio"></button>
+          <button id="fullscreenBtn"><img src="./images/maximize.png" alt="Tela cheia"></button>
+        </div>
+      </div>
+    </section>
+
+    <aside class="lista">
+  <div class="video-card">
+    <video class="capaVideo" src="./videos/learnReact.mp4" muted preload="metadata" poster="images/capaReact.jpg"></video>
+    <div class="info">
+      <span class="titulo">Vídeo recomendado 1</span>
+      <span class="canal">Canal Azul • 2,3 mil visualizações</span>
     </div>
+  </div>
 
-    <div class="lista">
-      <div class="video video-1"></div>
-      <div class="video video-2"></div>
-      <div class="video video-3"></div>
+  <div class="video-card">
+    <video class="capaVideo" src="./videos/gridTutorial.mp4" muted preload="metadata" poster="./images/capaGrid.jpg"></video>
+    <div class="info">
+      <span class="titulo">Vídeo recomendado 2</span>
+      <span class="canal">Canal Marinho • 1,1 mil visualizações</span>
     </div>
+  </div>
 
+  <div class="video-card">
+    <video class="capaVideo" src="./videos/jsEm5min.mp4" muted preload="metadata" poster="./images/capaJs5min.jpg"></video>
+    <div class="info">
+      <span class="titulo">Vídeo recomendado 3</span>
+      <span class="canal">Canal Oceano • 900 visualizações</span>
+    </div>
+  </div>
+</aside>
 
+  </main>
 
-
-    <!-- javascript -->
-    <script src="app.js"></script>
-  </body>
+  <script src="app.js"></script>
+</body>
 </html>
