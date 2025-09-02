@@ -1,32 +1,50 @@
 const video = document.getElementById("video");
-const playPauseBtn = document.getElementById("playPauseBtn").querySelector("img");
-const audioBtn = document.getElementById("audioBtn").querySelector("img");
+
+const playPauseBtn = document.getElementById("playPauseBtn");
+const audioBtn = document.getElementById("audioBtn");
+const fullscreenBtn = document.getElementById("fullscreenBtn");
 
 // ▶️ / ⏸️ play & pause
-document.getElementById("playPauseBtn").addEventListener("click", () => {
+playPauseBtn.addEventListener("click", () => {
+  const img = playPauseBtn.querySelector("img");
+
   if (video.paused) {
     video.play();
-    playPauseBtn.src = "./images/pause.png";
+    img.src = "./images/pause.png";
+    img.alt = "Pause";
   } else {
     video.pause();
-    playPauseBtn.src = "./images/play.png";
+    img.src = "./images/play.png";
+    img.alt = "Play";
   }
 });
 
 // 🔇 / 🔊 mute & unmute
-document.getElementById("audioBtn").addEventListener("click", () => {
+audioBtn.addEventListener("click", () => {
+  const img = audioBtn.querySelector("img");
+
   video.muted = !video.muted;
-  audioBtn.src = video.muted ? "./images/mute.png" : "./images/audio.png";
+  if (video.muted) {
+    img.src = "./images/mute.png";
+    img.alt = "Mudo";
+  } else {
+    img.src = "./images/audio.png";
+    img.alt = "Áudio";
+  }
 });
 
-// ⛶ fullscreen
-document.getElementById("fullscreenBtn").addEventListener("click", () => {
-  if (video.requestFullscreen) {
+// ⛶ fullscreen (entra e sai)
+fullscreenBtn.addEventListener("click", () => {
+  const img = fullscreenBtn.querySelector("img");
+
+  if (!document.fullscreenElement) {
     video.requestFullscreen();
-  } else if (video.webkitRequestFullscreen) {
-    video.webkitRequestFullscreen();
-  } else if (video.msRequestFullscreen) {
-    video.msRequestFullscreen();
+    img.src = "./images/minimize.png";
+    img.alt = "Restaurar";
+  } else {
+    document.exitFullscreen();
+    img.src = "./images/maximize.png";
+    img.alt = "Tela cheia";
   }
 });
 
@@ -36,19 +54,19 @@ const videoCards = document.querySelectorAll(".video-card");
 videoCards.forEach((card) => {
   const capaVideo = card.querySelector(".capaVideo");
 
-  // Hover → reproduz a capaVideonail
+  // Hover → prévia
   capaVideo.addEventListener("mouseenter", () => {
     capaVideo.play();
   });
 
-  // Sai do hover → pausa e volta pro poster
+  // Sai do hover → volta pro poster
   capaVideo.addEventListener("mouseleave", () => {
     capaVideo.pause();
     capaVideo.currentTime = 0;
-    capaVideo.load();
+    capaVideo.load(); // garante que o poster reaparece
   });
 
-  // Clique no card inteiro → troca com principal
+  // Clique no card → troca com principal
   card.addEventListener("click", () => {
     const mainSrc = video.getAttribute("src");
     const capaVideoSrc = capaVideo.getAttribute("src");
@@ -57,12 +75,14 @@ videoCards.forEach((card) => {
     video.setAttribute("src", capaVideoSrc);
     capaVideo.setAttribute("src", mainSrc);
 
-    // resetar capaVideonail para mostrar capa novamente
+    // resetar miniatura
     capaVideo.pause();
     capaVideo.currentTime = 0;
+    capaVideo.load();
 
-    // tocar o vídeo principal
+    // tocar principal atualizado
     video.play();
-    playPauseBtn.src = "./images/pause.png";
+    playPauseBtn.querySelector("img").src = "./images/pause.png";
+    playPauseBtn.querySelector("img").alt = "Pause";
   });
 });
