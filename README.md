@@ -23,6 +23,6 @@ Ele permite controlar a reprodução do vídeo principal, ativar/desativar o áu
 
 1. Clone o repositório e abra o arquivo `index.html` no navegador:  
    ```bash
-   git clone https://github.com/Brenosilva13/SegundoPlanoVideo.git
+   git clone https://github.com/Brenosilva13/GerminaTube.git
    ```
 2. Acesse o nosso site através deste [link](link do site)
