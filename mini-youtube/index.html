@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GerminaTube</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />          
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
@@ -16,6 +16,7 @@
     </div>
 
     <div class="right">
+      <button id="themeToggle">🌙</button>
       <div class="foto-perfil"></div>
     </div>
   </header>
@@ -28,37 +29,61 @@
         <div class="toolbar">
           <button id="playPauseBtn"><img src="./images/play.png" alt="Play"></button>
           <button id="audioBtn"><img src="./images/audio.png" alt="Audio"></button>
+          <input type="range" id="volumeControl" min="0" max="1" step="0.05" value="1">
+          <input type="range" id="progressBar" value="0" min="0" step="1">
+          <span id="timeDisplay">0:00 / 0:00</span>
           <button id="fullscreenBtn"><img src="./images/maximizar.png" alt="Tela cheia"></button>
         </div>
+      </div>
+
+      <!-- Bloco de informações do vídeo -->
+      <div class="video-info">
+        <h2 id="videoTitle">Curso de JavaScript para Iniciantes</h2>
+        <p id="videoViews">15 mil visualizações • 2 semanas atrás</p>
+        <p id="videoDescription">
+          Nesse vídeo você vai aprender os fundamentos do JavaScript de forma simples e prática.
+          Ideal para quem está começando na programação.
+        </p>
       </div>
     </section>
 
     <aside class="lista">
-  <div class="video-card">
-    <video class="capaVideo" src="./videos/learnReact.mp4" muted preload="metadata" poster="./images/capaReact.jpg"></video>
-    <div class="info">
-      <span class="titulo">Vídeo recomendado 1</span>
-      <span class="canal">Canal Azul • 2,3 mil visualizações</span>
-    </div>
-  </div>
+      <div class="video-card" 
+           data-src="./videos/learnReact.mp4" 
+           data-poster="./images/capaReact.jpg" 
+           data-id="1"
+           data-descricao="Aprenda os conceitos básicos do React em um único vídeo.">
+        <video class="capaVideo" src="./videos/learnReact.mp4" muted preload="metadata" poster="./images/capaReact.jpg"></video>
+        <div class="info">
+          <span class="titulo">Aprendendo React do Zero</span>
+          <span class="canal">Canal Azul • 2,3 mil visualizações</span>
+        </div>
+      </div>
 
-  <div class="video-card">
-    <video class="capaVideo" src="./videos/gridTutorial.mp4" muted preload="metadata" poster="./images/capaGrid.jpg"></video>
-    <div class="info">
-      <span class="titulo">Vídeo recomendado 2</span>
-      <span class="canal">Canal Marinho • 1,1 mil visualizações</span>
-    </div>
-  </div>
+      <div class="video-card" 
+           data-src="./videos/gridTutorial.mp4" 
+           data-poster="./images/capaGrid.jpg" 
+           data-id="2"
+           data-descricao="Um guia completo sobre CSS Grid para criar layouts responsivos.">
+        <video class="capaVideo" src="./videos/gridTutorial.mp4" muted preload="metadata" poster="./images/capaGrid.jpg"></video>
+        <div class="info">
+          <span class="titulo">Guia de CSS Grid</span>
+          <span class="canal">Canal Marinho • 1,1 mil visualizações</span>
+        </div>
+      </div>
 
-  <div class="video-card">
-    <video class="capaVideo" src="./videos/jsEm5min.mp4" muted preload="metadata" poster="./images/capaJs5min.jpg"></video>
-    <div class="info">
-      <span class="titulo">Vídeo recomendado 3</span>
-      <span class="canal">Canal Oceano • 900 visualizações</span>
-    </div>
-  </div>
-</aside>
-
+      <div class="video-card" 
+           data-src="./videos/jsEm5min.mp4" 
+           data-poster="./images/capaJs5min.jpg" 
+           data-id="3"
+           data-descricao="JavaScript explicado em apenas 5 minutos!">
+        <video class="capaVideo" src="./videos/jsEm5min.mp4" muted preload="metadata" poster="./images/capaJs5min.jpg"></video>
+        <div class="info">
+          <span class="titulo">JavaScript em 5 minutos</span>
+          <span class="canal">Canal Oceano • 900 visualizações</span>
+        </div>
+      </div>
+    </aside>
   </main>
 
   <script src="app.js"></script>

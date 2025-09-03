@@ -8,6 +8,7 @@
 body {
   background: #f0f4fa;
   color: #0f0f0f;
+  transition: background 0.3s, color 0.3s;
 }
 
 header {
@@ -43,6 +44,7 @@ header h1 {
 .right {
   display: flex;
   align-items: center;
+  gap: 12px;
 }
 
 .foto-perfil {
@@ -52,6 +54,14 @@ header h1 {
   background-size: cover;
   border-radius: 50%;
   border: 2px solid #00158C;
+}
+
+#themeToggle {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fff;
 }
 
 main {
@@ -84,7 +94,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 18px;
+  gap: 10px;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -114,6 +124,43 @@ main {
 .toolbar img {
   width: 22px;
   filter: invert(1);
+}
+
+#progressBar {
+  flex: 1;
+  cursor: pointer;
+}
+
+#timeDisplay {
+  font-size: 12px;
+  color: white;
+  min-width: 80px;
+  text-align: center;
+}
+
+#volumeControl {
+  width: 80px;
+}
+
+.video-info {
+  margin-top: 12px;
+  background: #fff;
+  padding: 12px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.video-info h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #111827;
+}
+
+.video-info p {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 4px;
 }
 
 .lista {
@@ -162,4 +209,28 @@ main {
   object-fit: cover;
   cursor: pointer;
   background: #000;
+}
+
+body.dark {
+  background: #0f172a;
+  color: #f1f5f9;
+}
+
+body.dark header {
+  background: #0f0f0f;
+  border-bottom: 2px solid #444;
+}
+
+body.dark .video-card,
+body.dark .comentarios,
+body.dark .video-info {
+  background: #1e293b;
+}
+
+body.dark .video-info h2 {
+  color: #f1f5f9;
+}
+
+body.dark .video-info p {
+  color: #cbd5e1;
 }
