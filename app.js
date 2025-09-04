@@ -1,3 +1,4 @@
+// Referências principais
 const video = document.getElementById("video");
 const playPauseBtn = document.getElementById("playPauseBtn");
 const audioBtn = document.getElementById("audioBtn");
@@ -10,6 +11,7 @@ const videoTitle = document.getElementById("videoTitle");
 const videoViews = document.getElementById("videoViews");
 const videoDescription = document.getElementById("videoDescription");
 
+// Play/Pause
 playPauseBtn.addEventListener("click", () => {
   const img = playPauseBtn.querySelector("img");
   if (video.paused) {
@@ -23,6 +25,7 @@ playPauseBtn.addEventListener("click", () => {
   }
 });
 
+// Áudio mute/unmute
 audioBtn.addEventListener("click", () => {
   const img = audioBtn.querySelector("img");
   video.muted = !video.muted;
@@ -35,10 +38,12 @@ audioBtn.addEventListener("click", () => {
   }
 });
 
+// Controle de volume
 volumeControl.addEventListener("input", () => {
   video.volume = volumeControl.value;
 });
 
+// Barra de progresso + tempo
 video.addEventListener("timeupdate", () => {
   progressBar.max = video.duration;
   progressBar.value = video.currentTime;
@@ -47,16 +52,19 @@ video.addEventListener("timeupdate", () => {
   timeDisplay.textContent = `${current} / ${total}`;
 });
 
+// Alterar posição do vídeo
 progressBar.addEventListener("input", () => {
   video.currentTime = progressBar.value;
 });
 
+// Formatar tempo mm:ss
 function formatTime(seconds) {
   let min = Math.floor(seconds / 60);
   let sec = Math.floor(seconds % 60);
   return `${min}:${sec < 10 ? "0"+sec : sec}`;
 }
 
+// Tela cheia
 fullscreenBtn.addEventListener("click", () => {
   const img = fullscreenBtn.querySelector("img");
   if (!document.fullscreenElement) {
@@ -70,8 +78,10 @@ fullscreenBtn.addEventListener("click", () => {
   }
 });
 
+// Lista de vídeos
 const videoCards = document.querySelectorAll(".video-card");
 
+// Carregar vídeo selecionado
 function carregarVideo(src, poster, titulo, views, descricao) {
   video.setAttribute("src", src);
   video.setAttribute("poster", poster);
@@ -84,6 +94,7 @@ function carregarVideo(src, poster, titulo, views, descricao) {
   videoDescription.textContent = descricao;
 }
 
+// Eventos dos cards
 videoCards.forEach((card) => {
   const capaVideo = card.querySelector(".capaVideo");
   const videoSrc = card.getAttribute("data-src");
@@ -94,6 +105,7 @@ videoCards.forEach((card) => {
   const views = card.querySelector(".canal").textContent;
   const descricao = card.getAttribute("data-descricao") || "Sem descrição disponível.";
 
+  // Preview no hover
   capaVideo.addEventListener("mouseenter", () => capaVideo.play());
   capaVideo.addEventListener("mouseleave", () => {
     capaVideo.pause();
@@ -101,12 +113,14 @@ videoCards.forEach((card) => {
     capaVideo.load();
   });
 
+  // Carregar vídeo ao clicar
   card.addEventListener("click", () => {
     carregarVideo(videoSrc, poster, titulo, views, descricao);
     location.hash = `#/video/${id}`;
   });
 });
 
+// Roteamento por hash
 window.addEventListener("hashchange", () => {
   const rota = location.hash;
   if (rota.startsWith("#/video/")) {
@@ -123,16 +137,19 @@ window.addEventListener("hashchange", () => {
   }
 });
 
+// Tema claro/escuro
 const themeToggle = document.getElementById("themeToggle");
 themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   themeToggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
 });
 
+// Comentários (estrutura já preparada)
 const comentariosLista = document.getElementById("comentariosLista");
 const comentarioTexto = document.getElementById("comentarioTexto");
 const enviarComentario = document.getElementById("enviarComentario");
 
+// Esconder controles ao inativo
 let hideControlsTimeout;
 video.addEventListener("mousemove", () => {
   document.querySelector(".video-principal").classList.remove("hide-controls");
