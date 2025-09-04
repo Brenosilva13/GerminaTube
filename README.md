@@ -23,7 +23,7 @@ Ele permite controlar a reprodução do vídeo principal, ativar/desativar o áu
    ```bash
    git clone https://github.com/Brenosilva13/SegundoPlanoVideo.git
    ```
-2. Acesse o nosso site através deste [link](link do site)
+2. Acesse o nosso site através deste [link](https://brenosilva13.github.io/GerminaTube/)
 
 ## 📈 Explicação da melhoria
 O projeto inicial era um player de vídeo simples. As melhorias trouxeram uma interface mais moderna, com cabeçalho, perfil e design responsivo. O player ganhou controles extras (play/pause, áudio, fullscreen) e uma barra lateral de vídeos recomendados com prévia ao passar o mouse e troca dinâmica com o vídeo principal, tornando a experiência mais interativa e próxima de uma plataforma real de streaming.
