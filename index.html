@@ -4,11 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GerminaTube</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+  <!-- Cabeçalho -->
   <header>
     <div class="left">
       <img src="./images/images.png" alt="logo" class="logo">
@@ -22,10 +24,13 @@
   </header>
 
   <main>
+    <!-- Área principal do vídeo -->
     <section class="video-area">
       <div class="video-principal">
+        <!-- Player -->
         <video id="video" width="100%" height="100%" src="./videos/jsForBeginners.mp4" poster="./images/capaJsBegginers.jpg"></video>
         
+        <!-- Controles do player -->
         <div class="toolbar">
           <button id="playPauseBtn"><img src="./images/play.png" alt="Play"></button>
           <button id="audioBtn"><img src="./images/audio.png" alt="Audio"></button>
@@ -36,7 +41,7 @@
         </div>
       </div>
 
-      <!-- Bloco de informações do vídeo -->
+      <!-- Informações do vídeo em exibição -->
       <div class="video-info">
         <h2 id="videoTitle">Curso de JavaScript para Iniciantes</h2>
         <p id="videoViews">15 mil visualizações • 2 semanas atrás</p>
@@ -47,7 +52,9 @@
       </div>
     </section>
 
+    <!-- Lista de vídeos sugeridos -->
     <aside class="lista">
+      <!-- Card 1 -->
       <div class="video-card" 
            data-src="./videos/learnReact.mp4" 
            data-poster="./images/capaReact.jpg" 
@@ -60,6 +67,7 @@
         </div>
       </div>
 
+      <!-- Card 2 -->
       <div class="video-card" 
            data-src="./videos/gridTutorial.mp4" 
            data-poster="./images/capaGrid.jpg" 
@@ -72,6 +80,7 @@
         </div>
       </div>
 
+      <!-- Card 3 -->
       <div class="video-card" 
            data-src="./videos/jsEm5min.mp4" 
            data-poster="./images/capaJs5min.jpg" 
